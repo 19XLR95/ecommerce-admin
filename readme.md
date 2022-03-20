@@ -34,7 +34,7 @@ $ pip3 install -r requirements.txt
 $ python3 app.py
 ```
 
-The backend will be ready at `http:localhost:5000` with **development** env.
+The backend will be ready at `http://localhost:5000` with **development** env.
 
 ## Frontend
 
@@ -53,4 +53,4 @@ $ npm install
 $ npm start
 ```
 
-The frontend will be ready at `http:localhost:3000` with **development** env.
+The frontend will be ready at `http://localhost:3000` with **development** env.
