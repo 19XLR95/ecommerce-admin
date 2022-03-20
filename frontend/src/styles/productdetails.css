@@ -91,3 +91,8 @@
     outline: none;
     box-shadow: none;
 }
+
+.error-msg {
+    text-align: center;
+    color: #ff0e0e;
+}

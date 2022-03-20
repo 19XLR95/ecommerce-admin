@@ -10,6 +10,7 @@ interface PropsType {
 function Login(props: PropsType) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
 
     const emailChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
@@ -21,10 +22,21 @@ function Login(props: PropsType) {
 
     const loginFormSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        if (email === '' || password === '') {
+            setErrorMsg('Please fill all the fields!');
+            return;
+        }
+
         const res = await login(email, password);
         
         if (res.code === 200) {
             props.setUserData(res.data);
+        }
+        else {
+            if (res.data && !Array.isArray(res.data)) {
+                setErrorMsg(res.data.msg as string);
+            }
         }
     }
 
@@ -39,6 +51,7 @@ function Login(props: PropsType) {
                 <div className='login-form-button-container'>
                     <button type='submit' className='login-form-button'>Login</button>
                 </div>
+                {errorMsg && <div className='error-msg'>{errorMsg}</div>}
             </form>
         </div>
     );

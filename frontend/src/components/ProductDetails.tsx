@@ -15,6 +15,7 @@ function ProductDetails(props: PropsType) {
     const [productBrand, setProductBrand] = useState('');
     const [productPrice, setProductPrice] = useState(0);
     const [productInStock, setProductInStock] = useState(0);
+    const [errorMsg, setErrorMsg] = useState('');
 
     const productNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setProductName(event.target.value);
@@ -36,6 +37,7 @@ function ProductDetails(props: PropsType) {
         event.preventDefault();
 
         if (productName === '' || productBrand === '' || productPrice === 0 || productInStock === 0) {
+            setErrorMsg('Please fill all the fields!');
             return;
         }
 
@@ -44,6 +46,11 @@ function ProductDetails(props: PropsType) {
 
             if (res.code === 201) {
                 props.setCreateProduct && props.setCreateProduct(false);
+            }
+            else {
+                if (res.data && !Array.isArray(res.data)) {
+                    setErrorMsg(res.data.msg as string);
+                }
             }
         }
         else {
@@ -55,6 +62,11 @@ function ProductDetails(props: PropsType) {
                         active: false,
                         productData: undefined
                     });
+                }
+                else {
+                    if (res.data && !Array.isArray(res.data)) {
+                        setErrorMsg(res.data.msg as string);
+                    }
                 }
             }
         }
@@ -99,6 +111,7 @@ function ProductDetails(props: PropsType) {
                     {!props.createProduct && <span></span>}
                     {!props.createProduct && <button type='button' className='product-details-form-button-delete' onClick={deleteButtonHandler}>Delete</button>}
                 </div>
+                {errorMsg && <div className='error-msg'>{errorMsg}</div>}
             </form>
         </div>
     );
