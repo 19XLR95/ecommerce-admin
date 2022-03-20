@@ -36,6 +36,8 @@ $ python3 app.py
 
 The backend will be ready at `http://localhost:5000` with **development** env.
 
+A default admin account will be inserted while application start (if there is no user with an email `admin@company.com`). The credentials are email `admin@company.com` and password `admin`.
+
 ## Frontend
 
 ### Requirements
