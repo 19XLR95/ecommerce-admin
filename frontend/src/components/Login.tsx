@@ -22,7 +22,10 @@ function Login(props: PropsType) {
     const loginFormSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const res = await login(email, password);
-        props.setUserData(res.data);
+        
+        if (res.code === 200) {
+            props.setUserData(res.data);
+        }
     }
 
     return(

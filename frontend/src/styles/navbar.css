@@ -1,0 +1,63 @@
+.nav-bar-container {
+    background-color: #39AEA9;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    display: flex;
+    color: white;
+    column-gap: 20px;
+}
+
+.nav-bar-container > div:first-child {
+    margin-right: auto;
+    font-size: 25px;
+    font-weight: bold;
+    flex-direction: column;
+    display: flex;
+}
+
+.nav-bar-container > div:first-child > div {
+    margin: auto;
+}
+
+.nav-bar-container > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar-container > div:nth-child(2) > div {
+    margin: auto;
+}
+
+.nav-bar-container > div:last-child {
+    display: flex;
+}
+
+.nav-bar-container > div:last-child > button {
+    background-color: #39AEA9;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.nav-bar-container > div:last-child > button:hover {
+    cursor: pointer;
+    background-color: #287c78;
+}
+
+.nav-bar-container > div:last-child > button:active {
+    cursor: pointer;
+    background-color: #164643;
+    outline: none;
+    box-shadow: none;
+}
+
+.nav-bar-container > div:last-child > button:focus {
+    outline: none;
+    box-shadow: none;
+}

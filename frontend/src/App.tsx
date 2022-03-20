@@ -15,7 +15,7 @@ function App() {
 
   if (cookieToken) {
     return (
-      <Products />
+      <Products setUserData={setUserData} userData={userData} />
     );
   }
   else {

@@ -1,16 +1,59 @@
 .product-card-container {
     display: flex;
-    flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    max-width: 10%;
+    width: 100%;
     height: auto;
     border-radius: 5px;
     padding: 10px;
-    row-gap: 10px;
+    column-gap: 10px;
 }
 
 .product-card-container:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 5px;
+}
+
+.product-card-container > div > div > span {
+    font-weight: bold;
+}
+
+.product-card-container > div:last-child {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
+}
+
+.product-card-container > div > div:last-child {
+    margin-top: auto;
+}
+
+.product-card-container > div > div:last-child > button {
+    float: right;
+    background-color: white;
+    border: 2px solid #39AEA9;
+    border-radius: 5px;
+    color: #39AEA9;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+}
+
+.product-card-container > div > div:last-child > button:hover {
     cursor: pointer;
+    background-color: #39AEA9;
+    color: white;
+}
+
+.product-card-container > div > div:last-child > button:active {
+    cursor: pointer;
+    background-color: #164643;
+    color: white;
+    outline: none;
+    box-shadow: none;
+}
+
+.product-card-container > div > div:last-child > button:focus {
+    outline: none;
+    box-shadow: none;
 }
