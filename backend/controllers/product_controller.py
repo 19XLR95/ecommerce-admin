@@ -4,7 +4,28 @@ from marshmallow import exceptions as MarshmallowErrors
 
 from db.schemas.product_schema import ProductSchema
 
+def __check_user_authorization__(request, db_client):
+    cookie_token = request.cookies.get("token")
+    
+    if cookie_token == None:
+        return False
+    
+    try:
+        user = db_client.db.users.find_one({"token": cookie_token})
+
+        if user == None:
+            return False
+    except:
+        return make_response({"msg": "Internal server error!"}, 500)
+        return False
+    
+    return True
+
 def get_all_products(request, db_client):
+    user_authorized = __check_user_authorization__(request, db_client)
+    if not user_authorized:
+        return make_response({"msg": "You need to login!"}, 401)
+
     loaded_products = None
     try:
         loaded_products = db_client.db.products.find({})
@@ -20,6 +41,10 @@ def get_all_products(request, db_client):
     return jsonify(products)
 
 def create_product(request, db_client):
+    user_authorized = __check_user_authorization__(request, db_client)
+    if not user_authorized:
+        return make_response({"msg": "You need to login!"}, 401)
+
     product_json = request.json
     product_schema = ProductSchema()
     product = None
@@ -34,6 +59,10 @@ def create_product(request, db_client):
     return make_response(product, 201)
 
 def update_product(request, db_client, product_id):
+    user_authorized = __check_user_authorization__(request, db_client)
+    if not user_authorized:
+        return make_response({"msg": "You need to login!"}, 401)
+
     product_object_id = None
     product = None
     try:
@@ -62,6 +91,10 @@ def update_product(request, db_client, product_id):
     return make_response('', 204)
 
 def delete_product(request, db_client, product_id):
+    user_authorized = __check_user_authorization__(request, db_client)
+    if not user_authorized:
+        return make_response({"msg": "You need to login!"}, 401)
+    
     product_object_id = None
     product = None
     try:
