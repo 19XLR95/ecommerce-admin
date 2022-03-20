@@ -1,0 +1,16 @@
+.product-card-container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    max-width: 10%;
+    height: auto;
+    border-radius: 5px;
+    padding: 10px;
+    row-gap: 10px;
+}
+
+.product-card-container:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
