@@ -28,6 +28,10 @@
     padding: 10px;
 }
 
+.product-details-form-button-container > span {
+    margin-left: 10px;
+}
+
 .product-details-form-button {
     width: 40%;
     background-color: white;
@@ -54,6 +58,36 @@
 }
 
 .product-details-form-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.product-details-form-button-delete {
+    width: 40%;
+    background-color: white;
+    border: 2px solid #ff0e0e;
+    border-radius: 5px;
+    color: #ff0e0e;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+}
+
+.product-details-form-button-delete:hover {
+    cursor: pointer;
+    background-color: #ff0e0e;
+    color: white;
+}
+
+.product-details-form-button-delete:active {
+    cursor: pointer;
+    background-color: #8b0c0c;
+    color: white;
+    outline: none;
+    box-shadow: none;
+}
+
+.product-details-form-button-delete:focus {
     outline: none;
     box-shadow: none;
 }

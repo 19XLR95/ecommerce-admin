@@ -2,9 +2,17 @@ import '../styles/productcard.css';
 
 interface PropsType {
     productData: Record<string, unknown>,
+    setEditProduct: Function,
 };
 
 function ProductCard(props: PropsType) {
+    const editButtonHandler = () => {
+        props.setEditProduct({
+            active: true,
+            productData: props.productData
+        });
+    }
+
     return (
         <div className="product-card-container">
             <div>
@@ -16,7 +24,7 @@ function ProductCard(props: PropsType) {
                 <div><span>Price:</span> {props.productData.price}</div>
                 <div><span>In Stock:</span> {props.productData.in_stock}</div>
                 <div>
-                    <button>Edit</button>
+                    <button onClick={editButtonHandler}>Edit</button>
                 </div>
             </div>
         </div>

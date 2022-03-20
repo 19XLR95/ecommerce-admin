@@ -9,6 +9,7 @@ interface PropsType {
     setUserData: Function,
     userData: Record<string, unknown>,
     setCreateProduct: Function,
+    setEditProduct: Function,
 };
 
 function Products(props: PropsType) {
@@ -36,7 +37,7 @@ function Products(props: PropsType) {
             <div className='products-container'>
                 {
                     productsData.map((product) => {
-                        return <ProductCard productData={product} key={product._id as string} />
+                        return <ProductCard productData={product} key={product._id as string} setEditProduct={props.setEditProduct} />
                     })
                 }
             </div>
