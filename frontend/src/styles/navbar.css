@@ -22,6 +22,12 @@
     margin: auto;
 }
 
+.nav-bar-container > div:first-child > div > span {
+    font-weight: normal;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
 .nav-bar-container > div:nth-child(2) {
     display: flex;
     flex-direction: column;

@@ -6,6 +6,7 @@ import '../styles/navbar.css';
 interface PropsType {
     setUserData: Function,
     userData: Record<string, unknown>,
+    page?: string
 };
 
 function NavBar(props: PropsType) {
@@ -26,7 +27,7 @@ function NavBar(props: PropsType) {
     return (
         <div className="nav-bar-container">
             <div>
-                <div>Products Management</div>
+                <div>Products Management <span>{props.page}</span></div>
             </div>
             <div>
                 <div>{`${props.userData.name} ${props.userData.surname}`}</div>

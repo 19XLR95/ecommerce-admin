@@ -4,3 +4,35 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
+
+.add-product-button {
+    position: fixed;
+    bottom: 8%;
+    right: 5%;
+    background-color: #39AEA9;
+    border: 2px solid white;
+    border-radius: 100%;
+    color: white;
+    font-weight: bold;
+    font-size: 36px;
+    padding: 8px;
+    width: 75px;
+    height: 75px;
+}
+
+.add-product-button:hover {
+    cursor: pointer;
+    background-color: #287c78;
+}
+
+.add-product-button:active {
+    cursor: pointer;
+    background-color: #164643;
+    outline: none;
+    box-shadow: none;
+}
+
+.add-product-button:focus {
+    outline: none;
+    box-shadow: none;
+}

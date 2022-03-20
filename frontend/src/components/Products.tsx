@@ -8,6 +8,7 @@ import '../styles/products.css'
 interface PropsType {
     setUserData: Function,
     userData: Record<string, unknown>,
+    setCreateProduct: Function,
 };
 
 function Products(props: PropsType) {
@@ -24,9 +25,14 @@ function Products(props: PropsType) {
         })();
     }, []);
 
+    const productAddButtonHandler = () => {
+        props.setCreateProduct(true);
+    }
+
     return (
         <>
-            <NavBar setUserData={props.setUserData} userData={props.userData} />
+            <NavBar setUserData={props.setUserData} userData={props.userData} page='All Products' />
+            <button className='add-product-button' onClick={productAddButtonHandler}>+</button>
             <div className='products-container'>
                 {
                     productsData.map((product) => {
